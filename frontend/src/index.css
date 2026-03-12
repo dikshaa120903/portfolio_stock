@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background-dark: #0f172a;
+  --color-surface-dark: rgba(30, 41, 59, 0.7);
+  --color-surface-border-dark: rgba(255, 255, 255, 0.05);
+  --color-text-main-dark: #f8fafc;
+  --color-text-muted-dark: #94a3b8;
+
+  --color-background-light: #f8fafc;
+  --color-surface-light: rgba(255, 255, 255, 0.7);
+  --color-surface-border-light: rgba(0, 0, 0, 0.05);
+  --color-text-main-light: #0f172a;
+  --color-text-muted-light: #475569;
+
+  --color-primary: #8b5cf6;
+  --color-primary-hover: #7c3aed;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+}
+
+@layer base {
+  :root {
+    --bg-color: var(--color-background-light);
+    --surface-bg: var(--color-surface-light);
+    --surface-border: var(--color-surface-border-light);
+    --text-main: var(--color-text-main-light);
+    --text-muted: var(--color-text-muted-light);
+  }
+
+  :root.dark {
+    --bg-color: var(--color-background-dark);
+    --surface-bg: var(--color-surface-dark);
+    --surface-border: var(--color-surface-border-dark);
+    --text-main: var(--color-text-main-dark);
+    --text-muted: var(--color-text-muted-dark);
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@utility glass-panel {
+  background-color: var(--surface-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--surface-border);
+  border-radius: 1rem;
+}
+
+@utility glass-card {
+  background-color: var(--surface-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--surface-border);
+  border-radius: 0.75rem;
+}
